@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8">
+	<title>Unidad 3 - Ponte a Prueba</title>
+	<style>
+	 #rejilla {
+	     width: 50vw;
+	     height: 50vh;
+	     margin: auto;
+	     display: grid;
+	     grid-template-columns: 1fr 1fr 1fr 1fr;
+	     gap: 1em;
+	     justify-content: stretch;
+	 }
+
+	 .celda {
+	     cursor: pointer;
+	     padding: 1em;
+	     background-color: #c2d9ed;
+	     display: flex;
+	     align-items: center;
+	     justify-content: center;
+	 }
+
+	 .activa {
+	     background-color: #6ea8db;
+	 }
+	</style>
+    </head>
+    <body>
+	<div id="rejilla">
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda activa">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	    <div class="celda">celda</div>
+	</div>
+    </body>
+
+    <script>
+	let rejilla = document.getElementById('rejilla')
+	function FuncionRara(event){
+		if(event.target.id != 'rejilla'){
+			event.target.classList.toggle('activa');
+		}
+	}
+    rejilla.addEventListener('click', FuncionRara);
+	let ay = document.createElement('button');
+	ay.textContent = "Cambia el color del fondo";
+
+	function Funcioncinchi(){
+		const letters = '0123456789ABCDEF';
+		let color = '#';
+		for(let i = 0; i < 6; i++){
+			color += letters[Math.floor(Math.random() * 16)]
+		}
+
+		document.body.style.backgroundColor = color;
+	}
+	ay.addEventListener('click', Funcioncinchi);
+	rejilla.append(ay);
+
+    </script>
+</html>
